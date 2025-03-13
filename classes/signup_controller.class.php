@@ -4,53 +4,55 @@ class SignupContr extends Signup{
    private $pass;
    private $r_pass;
    private $email;
+   private $role;
 
-   public function __construct($user,$password,$r_password,$email){
+   public function __construct($user,$password,$r_password,$email,$role){
     $this->user_name=$user;
     $this->pass=$password;
     $this->r_pass=$r_password;
     $this->email=$email;
+    $this->role=$role;
    }
 
    public function signupUser(){
    
     if(!$this->InputEmpty()){
         $_SESSION["error"]="Empty Input";
-     header("location: index.php?error=emptyinput");
+     header("location: ".SITEURL."?error=emptyinput");
     die();
     
 
     }
     if(!$this->valid_name()){
         $_SESSION["error"]="Invalid Username";
-        header("location: index.php?error=username");
+        header("location:".SITEURL."?error=username");
         die();
         
 
     }
     if(!$this->valid_email()){
         $_SESSION["error"]="Invalid Email";
-        header("location: index.php?error=email");
+        header("location:".SITEURL."?error=email");
         die();
      
 
     }
     if(!$this->confirm_password()){
         $_SESSION["error"]="Password Don't Match";
-        header("location: index.php?error=passwordmatch");
+        header("location:".SITEURL." ?error=passwordmatch");
         die();
     
 
     }
     if(!$this-> uidTakenCheck()){
         $_SESSION["error"]="Email or Username is taken";
-        header("location: index.php?error=emailorusername");
+        header("location:".SITEURL."?error=emailorusername");
         exit();
 
     }
 
 
-    $this->setUser( $this->user_name, $this->pass, $this->email);
+    $this->setUser( $this->user_name, $this->pass, $this->email,$this->role);
     
     
    }

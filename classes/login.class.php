@@ -1,16 +1,17 @@
 <?php
+require_once "../config/constant.php";
 class Login extends Dbh{
    
     protected function getUser($uname,$pass){
         session_start();
-        $st=$this->connect()->prepare('SELECT password FROM users WHERE name=?');
+        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT password FROM users WHERE name=?');
         //$hashpass=md5($pass);
         $hashpass=$pass;
     
         if(!$st->execute(array($uname))){
             $st=null;
         
-            header("location: index.php?error=stfailed");
+            header("location:".SITEURL."?error=stfailed");
             die();
            
         }
@@ -20,7 +21,7 @@ class Login extends Dbh{
 
        if($st->rowCount()==0){
         $st=null;
-        header("location: index.php?error=user_not_found");
+        header("location:".SITEURL."?error=user_not_found");
         die();
        }
 
@@ -32,22 +33,22 @@ class Login extends Dbh{
         $st=null;
         
         $_SESSION["error"]="wrong_password";
-        header("location: index.php?error=wrong_password");
+        header("location: ".SITEURL."?error=wrong_password");
         die();
        }
        else if($checkpass){
-        $st=$this->connect()->prepare('SELECT password ,name FROM users WHERE name=?');
+        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT password ,name FROM users WHERE name=?');
         if(!$st->execute(array($uname))){
             $st=null;
          
-            header("location: index.php?error=stfailed");
+            header("location:".SITEURL."?error=stfailed");
             die();
            
         }
         if($st->rowCount()==0){
             $st=null;
             $_SESSION["error"]="user_not_found";
-            header("location: index.php?error=user_not_found");
+            header("location:".SITEURL."?error=user_not_found");
             die();
            }
            $user=$st->fetchAll(PDO::FETCH_ASSOC);

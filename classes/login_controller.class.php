@@ -14,7 +14,7 @@ class LoginContr extends Login {
    public function LoginUser(){
     if(!$this->InputEmpty()){
      $_SESSION["error"]="Empty Input";
-     header("location: index.php?error=emptyinput");
+     header("location:".SITEURL."?error=emptyinput");
     die();
     
 

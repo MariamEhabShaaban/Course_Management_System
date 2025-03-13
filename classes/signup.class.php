@@ -1,15 +1,16 @@
 <?php
+require_once "../config/constant.php";
 class Signup extends Dbh{
 
-    protected function setUser($uname,$pass,$email){
-        $st=$this->connect()->prepare('INSERT INTO users (name ,password,email) VALUES (?,?,?);');
+    protected function setUser($uname,$pass,$email,$role){
+        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('INSERT INTO users (name ,password,email,role) VALUES (?,?,?,?);');
         //$hashpass=md5($pass);
         $hashpass=$pass;
     
-        if(!$st->execute(array($uname,$hashpass,$email))){
+        if(!$st->execute(array($uname,$hashpass,$email,$role))){
             $st=null;
             
-            header("location: index.php?error=stfailed");
+            header("location:".SITEURL."?error=stfailed");
             die();
            
         }
@@ -22,12 +23,12 @@ class Signup extends Dbh{
 
 
    protected function checkUser($uname,$email){
-    $st=$this->connect()->prepare('SELECT name FROM users WHERE name=? OR email=?;');
+    $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT name FROM users WHERE name=? OR email=?;');
 
     if(!$st->execute(array($uname,$email))){
         $st=null;
       
-        header("location: index.php?error=stfailed");
+        header("location: ".SITEURL."?error=stfailed");
         die();
    
     }
