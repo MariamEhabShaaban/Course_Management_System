@@ -4,7 +4,7 @@ class Login extends Dbh{
    
     protected function getUser($uname,$pass){
         session_start();
-        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT password FROM users WHERE name=?');
+        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT * FROM users WHERE name=?');
         //$hashpass=md5($pass);
         $hashpass=$pass;
     
@@ -37,7 +37,7 @@ class Login extends Dbh{
         die();
        }
        else if($checkpass){
-        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT password ,name FROM users WHERE name=?');
+        $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('SELECT * FROM users WHERE name=?');
         if(!$st->execute(array($uname))){
             $st=null;
          
@@ -52,8 +52,13 @@ class Login extends Dbh{
             die();
            }
            $user=$st->fetchAll(PDO::FETCH_ASSOC);
-           session_start();
+          
+           
            $_SESSION["name"]=$user[0]["name"];
+           $_SESSION["role"]=$user[0]["role"];
+           
+
+          
            $st=null;
 
        }

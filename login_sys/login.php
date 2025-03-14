@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
   
 
     $user_name=$_POST['username'];
-    $password=$_POST['password'];
+    $password=md5($_POST['password']);
 
     include '../classes/dbh.class.php';
     include '../classes/login.class.php';

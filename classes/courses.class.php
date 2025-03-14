@@ -30,7 +30,7 @@ private $instructor_id;
 
         }
         else if($role== 'student'){
-            $sql = "SELECT * FROM courses WHERE studnet_id=?";
+            $sql = "SELECT * FROM courses WHERE student_id=?";
             $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare($sql);
             $st->execute(array($id));
             $courses=$st->fetchAll(PDO::FETCH_ASSOC);

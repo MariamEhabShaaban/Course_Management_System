@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+require_once("../config/constant.php");
+
+if(isset($_SESSION["role"]) && $_SESSION['role']=='admin'){
 
 require_once "../classes/dbh.class.php";
 require_once "../classes/courses.class.php";
@@ -76,5 +79,14 @@ $courses = $cour->all_courses('admin', $admin_id);
         </tbody>
     </table>
 </div>
+<?php }
+else{
+    $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
+    header("location:".SITEURL);
+}
+
+
+?>
 
 <?php require '../partials/footer.php'; ?>
+    

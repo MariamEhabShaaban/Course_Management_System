@@ -4,8 +4,8 @@ class Signup extends Dbh{
 
     protected function setUser($uname,$pass,$email,$role){
         $st=$this->connect(DNS,DB_USERNAME,PASSWORD)->prepare('INSERT INTO users (name ,password,email,role) VALUES (?,?,?,?);');
-        //$hashpass=md5($pass);
-        $hashpass=$pass;
+        $hashpass=md5($pass);
+       
     
         if(!$st->execute(array($uname,$hashpass,$email,$role))){
             $st=null;

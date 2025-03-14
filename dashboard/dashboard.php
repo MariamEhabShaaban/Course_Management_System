@@ -1,5 +1,8 @@
  <?php
- session_start();
+ 
+ 
+ require_once "../config/constant.php";
+ if(isset($_SESSION["role"]) ){
  require_once '../classes/dbh.class.php';
  require_once '../classes/users.class.php';
  require_once "../partials/header.php";
@@ -39,4 +42,11 @@ require_once "../partials/user_info.php";
 <?php
  require_once "../partials/footer.php";
  require_once "../partials/user_info.php";
+}
+else{
+    $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
+    header("location:".SITEURL);
+}
+
  ?>
+ 

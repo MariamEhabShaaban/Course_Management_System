@@ -1,6 +1,7 @@
 <?php
-session_start();
 
+require_once "../config/constant.php";
+ if(isset($_SESSION["role"]) && $_SESSION['role']=='instructor' ){
 require_once "../classes/dbh.class.php";
 require_once "../classes/courses.class.php";
 require_once "../classes/users.class.php";
@@ -57,6 +58,13 @@ require_once "instructor_dashboard.php";
 
 
   }
+}
+else{
+  $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
+  header("location:".SITEURL);
+}
+
+
 
 
 

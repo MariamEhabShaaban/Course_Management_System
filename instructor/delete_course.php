@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+require_once "../config/constant.php";
+ if(isset($_SESSION["role"]) && $_SESSION['role']=='instructor' ){
 if(isset($_POST['delete_course'])){
     require_once '../classes/dbh.class.php';
     require_once '../classes/courses.class.php';
@@ -23,6 +25,12 @@ if(isset($_POST['delete_course'])){
         
 }
 
+ }
+ else{
+    $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
+    header("location:".SITEURL);
+  }
+  
 
 
 ?>

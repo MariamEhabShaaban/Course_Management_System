@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+require_once "../config/constant.php";
+ if(isset($_SESSION["role"]) && $_SESSION['role']=='student' ){
 
 require_once "../classes/dbh.class.php";
 require_once "../classes/courses.class.php";
@@ -11,8 +13,6 @@ require_once "student_dashboard.php";
 
 
 $student_id = $user['id'];
-$cour = new course();
-$courses = $cour->all_courses('student', $student_id);
 // get total number of enrollment 
 // we need course_id
 $enroll = new enrollment();
@@ -66,4 +66,10 @@ $courses = $enroll->get_enrollment_by_student_id($student_id);
     </table>
 </div>
 
-<?php require '../partials/footer.php'; ?>
+<?php require '../partials/footer.php'; 
+}
+else{
+   $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
+   header("location:".SITEURL);
+ }
+?>
