@@ -6,8 +6,9 @@ I developed this project to simplify course management, enabling efficient handl
 
 🔧 *Technologies & Techniques Used:*  
 ✅ *PHP* for backend development  
+✅ OOP Principles (Encapsulation, Inheritance, Polymorphism, and Abstraction) for cleaner, modular, and maintainable code
 ✅ *MySQL* for database management  
-✅ *HTML, CSS, JavaScript* for the frontend  
+✅ *HTML, CSS, Bootsrap* for the frontend  
 ✅ *CRUD Operations* for managing data efficiently  
 ✅ *User Authentication & Authorization* for secure access  
 ✅ *Form Validation* to enhance data integrity  
