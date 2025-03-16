@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 require_once "../config/constant.php";
- if(isset($_SESSION["role"]) && $_SESSION['role']=='instructor' ){
-require_once "../classes/dbh.class.php";
-require_once "../classes/courses.class.php";
-require_once "../classes/users.class.php";
-require_once "../classes/enrollments.class.php";
-require_once "../partials/header.php";
-require_once "instructor_dashboard.php";
+if (isset($_SESSION["role"]) && $_SESSION['role'] == 'instructor') {
+    require_once "../classes/dbh.class.php";
+    require_once "../classes/courses.class.php";
+    require_once "../classes/users.class.php";
+    require_once "../classes/enrollments.class.php";
+    require_once "../partials/header.php";
+    require_once "instructor_dashboard.php";
 
-$enroll = new enrollment();
-$enrollmets=$enroll->get_enrollment($user['id']);
-?>
+    $enroll = new enrollment();
+    $enrollmets = $enroll->get_enrollment($user['id']);
+    ?>
     <div class="main-content">
         <h1>All Enrollments</h1>
         <table class="table">
@@ -21,43 +21,47 @@ $enrollmets=$enroll->get_enrollment($user['id']);
                 <th>Enrolled In Course</th>
             </thead>
             <?php
-                if($enrollmets){
-            ?>
-            <tbody>
-                <?php
-                 foreach($enrollmets as $en){
-                  $st_name=$en['name'];
-                  $st_email=$en['email'];
-                  $cour_title=$en['title'];
+            if ($enrollmets) {
                 ?>
-                <tr>
-                    <td><?php echo $st_name?></td>
-                    <td><?php echo $st_email?></td>
-                    <td><?php echo $cour_title?></td>
+                <tbody>
+                    <?php
+                    foreach ($enrollmets as $en) {
+                        $st_name = $en['name'];
+                        $st_email = $en['email'];
+                        $cour_title = $en['title'];
+                        ?>
+                        <tr>
+                            <td><?php echo $st_name ?></td>
+                            <td><?php echo $st_email ?></td>
+                            <td><?php echo $cour_title ?></td>
 
-                </tr>
+                        </tr>
 
-                <?php }?>
+                    <?php } ?>
 
-            </tbody>
-            <?php
-                } else{
-                    echo "<div class='text-danger'> Not Enrollments</div>";
-                }
+                </tbody>
+                <?php
+            } else {
+                echo "<div class='text-danger'> Not Enrollments</div>";
+            }
             ?>
 
         </table>
-        
+
     </div>
 
-<?php require '../partials/footer.php';
+    <?php require '../partials/footer.php';
 
+} else {
+    if (isset($_SESSION["role"])) {
+        $_SESSION['login'] = "<div class='text-danger'>No Permission</div>";
+        header("location:" . SITEURL . "dashboard/dashboard.php");
+    } else {
+        $_SESSION['login'] = "<div class='text-danger'>Please Login First</div>";
+        header("location:" . SITEURL);
+    }
 }
-else{
-   $_SESSION['login']="<div class='text-danger'>Please Login First</div>";
-   header("location:".SITEURL);
- }
- 
+
 
 
 ?>

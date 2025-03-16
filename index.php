@@ -12,8 +12,9 @@ require 'partials/header.php';
             <p>Don't have an account yet? Sign up here</p>
             <?php if (isset($_SESSION['login'])) {
                 echo $_SESSION['login'];
+                unset($_SESSION['login']) ;
             }
-            unset($_SESSION['login']) ?>
+            ?>
             <form action="<?php echo SITEURL ?>login_sys/signup.php" method="POST">
                 <input type="text" class="form-group form-control" placeholder="Username" name="username">
                 <input type="password" class="form-group form-control" placeholder="Password" name="password">
@@ -46,6 +47,13 @@ require 'partials/header.php';
                 <input type="submit" name="login" value="LOGIN" class=" btn btn-primary align-center">
 
             </form>
+            <?php
+                if(isset($_SESSION['error'])){
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+            
+            ?>
         </div>
     </div>
 <?php } ?>

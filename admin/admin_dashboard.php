@@ -6,16 +6,16 @@
                 <a class="nav-link" href="<?php echo SITEURL?>dashboard/dashboard.php">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Students</a>
+                <a class="nav-link" href="<?php echo SITEURL?>admin/students.php">Students</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo SITEURL?>admin/courses.php">Courses</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Instructors</a>
+                <a class="nav-link" href="<?php echo SITEURL?>admin/instructor.php">Instructors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Enrollments</a>
+                <a class="nav-link" href="<?php echo SITEURL ?>admin/enrollment.php">Enrollments</a>
             </li>
             
         </ul>
