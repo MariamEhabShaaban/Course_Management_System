@@ -4,18 +4,14 @@ I developed this project to simplify course management, enabling efficient handl
 
 🔧 *Technologies & Techniques Used:*  
 ✅ *PHP* for backend development  
-✅ OOP Principles (Encapsulation, Inheritance, Polymorphism, and Abstraction) for cleaner, modular, and maintainable code
 ✅ *MySQL* for database management  
-✅ *HTML, CSS, Bootsrap* for the frontend  
+✅ *HTML, CSS, JavaScript* for the frontend  
 ✅ *CRUD Operations* for managing data efficiently  
 ✅ *User Authentication & Authorization* for secure access  
 ✅ *Form Validation* to enhance data integrity  
 ✅ *Session Management* for tracking user interactions  
 ✅ *PHPMailer* to send emails efficiently  
+✅ *OOP Principles* (Encapsulation, Inheritance, Polymorphism, and Abstraction) for cleaner, modular, and maintainable code  
 
-Currently, I’m expanding my knowledge by learning *MVC (Model-View-Controller)* architecture to build more structured and scalable applications. Excited to keep growing! 🚀  
 
 💻 **Live Demo:** [edupath.hstn.me](http://edupath.hstn.me/)  
-
-
-Would love to hear your thoughts and feedback! 😊  
