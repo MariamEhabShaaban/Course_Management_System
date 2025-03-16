@@ -17,6 +17,6 @@ I developed this project to simplify course management, enabling efficient handl
 Currently, I’m expanding my knowledge by learning *MVC (Model-View-Controller)* architecture to build more structured and scalable applications. Excited to keep growing! 🚀  
 
 💻 **Live Demo:** [edupath.hstn.me](http://edupath.hstn.me/)  
-📂 **GitHub Repo:** [Course Management System](https://github.com/MariamEhabShaaban/Course_Management_System)  
+
 
 Would love to hear your thoughts and feedback! 😊  
