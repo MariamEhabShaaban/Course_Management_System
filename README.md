@@ -1,7 +1,5 @@
 # Course_Management_System
 
-🚀 *Excited to share my Course Management System project!* 📚💻  
-
 I developed this project to simplify course management, enabling efficient handling of courses, students, and instructors. It has been a great learning experience, helping me strengthen my backend development skills!  
 
 🔧 *Technologies & Techniques Used:*  
