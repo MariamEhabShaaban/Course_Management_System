@@ -14,4 +14,4 @@ I developed this project to simplify course management, enabling efficient handl
 ✅ *OOP Principles* (Encapsulation, Inheritance, Polymorphism, and Abstraction) for cleaner, modular, and maintainable code  
 
 
-💻 **Live Demo:** [edupath.hstn.me](http://edupath.hstn.me/)  
+💻 **Live Demo:** [http://edupath.fwh.is/)  
